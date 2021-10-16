@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-// MARK: - Problem1
+// MARK: - Problem1(優しい)
 /*
  Problem1FirstVCとProblem1SecondVCで共通の処理が多く見られる。これらをProtocolを用いて共通化したい。
  以下の条件を満たすこと
@@ -32,4 +33,32 @@ import Foundation
  */
 
 
-// MARK: - Problem2
+// MARK: - Problem2(難しい)
+/*
+ イレギュラーなメソッドをProtocolを用いて異なる扱いでアクセスできるようにしたい
+ 以下の条件を満たすこと
+ ・二つのメソッドは以下のようにアクセスできるようにする
+ Manager().saveUser()
+ Manager().tentative.saveUserTentative()
+ ・以下のようなアクセスはエラーを出すようにする
+ Manager().tentative.saveUser() // だめ
+ Manager().saveUserTentative() // だめ
+ */
+/*
+ ヒント1: ジェネリクスを用いる
+ ヒント2: protocol extensionを用いる
+ */
+
+struct Manager {
+    
+    // 普通にアクセスできるように
+    func saveUser() {
+        // Userを保存する処理
+    }
+    
+    // 仮のメソッドなので、異なる扱いをしたい
+    func saveUserTentative() {
+        // Userを保存する処理(仮)
+    }
+    
+}

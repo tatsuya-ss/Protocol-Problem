@@ -15,19 +15,32 @@ final class TopViewController: UIViewController {
     }
     
     @IBAction private func presentProblem1FirstVCButtonDidTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Problem1First", bundle: nil)
-        let problem1FirstVC = storyboard.instantiateViewController(
-            withIdentifier: String(describing: Problem1FirstViewController.self)
-        ) as! Problem1FirstViewController
-        present(problem1FirstVC, animated: true)
+        present(Problem1FirstViewController.self)
     }
     
     @IBAction private func presentProblem1SecondVCButtonDidTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Problem1Second", bundle: nil)
-        let problem1SecondVC = storyboard.instantiateViewController(
-            withIdentifier: String(describing: Problem1SecondViewController.self)
-        ) as! Problem1SecondViewController
-        present(problem1SecondVC, animated: true)
+        present(Problem1SecondViewController.self)
     }
     
+}
+
+private extension UIViewController {
+    
+    func present<T: UIViewController>(_ ViewControllerType: T.Type) {
+        let vc = ViewControllerType.instantiate()
+        present(vc, animated: true)
+    }
+    
+    static func instantiate() -> Self {
+        var storyboardName = String(describing: self)
+        if let result = storyboardName.range(of: "ViewController") {
+            storyboardName.removeSubrange(result)
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let vc = storyboard.instantiateViewController(
+            identifier: String(describing: self)
+        ) as! Self
+        return vc
+    }
+
 }
