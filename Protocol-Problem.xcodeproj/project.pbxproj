@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750031DE271D4DCB00971701 /* TableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750031DD271D4DCB00971701 /* TableViewProtocol.swift */; };
 		AB4F7CCE271B2202000A8D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F7CCD271B2202000A8D83 /* AppDelegate.swift */; };
 		AB4F7CD0271B2202000A8D83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F7CCF271B2202000A8D83 /* SceneDelegate.swift */; };
 		AB4F7CD7271B2203000A8D83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB4F7CD6271B2203000A8D83 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		750031DD271D4DCB00971701 /* TableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProtocol.swift; sourceTree = "<group>"; };
 		AB4F7CCA271B2202000A8D83 /* Protocol-Problem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protocol-Problem.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4F7CCD271B2202000A8D83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB4F7CCF271B2202000A8D83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		750031DC271D4DBA00971701 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				750031DD271D4DCB00971701 /* TableViewProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		AB4F7CC1271B2202000A8D83 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		AB4F7CCC271B2202000A8D83 /* Protocol-Problem */ = {
 			isa = PBXGroup;
 			children = (
+				750031DC271D4DBA00971701 /* Protocols */,
 				AB4F7CCD271B2202000A8D83 /* AppDelegate.swift */,
 				AB4F7CCF271B2202000A8D83 /* SceneDelegate.swift */,
 				AB4F7D11271B2D4E000A8D83 /* Problem.swift */,
@@ -309,6 +320,7 @@
 				AB4F7D04271B26FC000A8D83 /* Problem1SecondViewController.swift in Sources */,
 				AB4F7D0D271B298A000A8D83 /* User.swift in Sources */,
 				AB4F7CD0271B2202000A8D83 /* SceneDelegate.swift in Sources */,
+				750031DE271D4DCB00971701 /* TableViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
