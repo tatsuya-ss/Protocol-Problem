@@ -7,6 +7,8 @@
 
 import UIKit
 
+extension Problem1FirstViewController: TableViewProtocol { }
+
 // MARK: - 並び替えを実装するViewController
 final class Problem1FirstViewController: UIViewController {
     
@@ -33,7 +35,8 @@ extension Problem1FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         // 以下を共通に
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
+        _tableView(tableView, didSelectRowAt: indexPath)
     }
     
 }
@@ -55,9 +58,10 @@ extension Problem1FirstViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         // 以下を共通に
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
+//        let view = UIView()
+//        view.backgroundColor = .clear
+//        return view
+        _tableView(tableView, viewForHeaderInSection: section)
     }
     
 }
@@ -69,8 +73,9 @@ extension Problem1FirstViewController: UITableViewDragDelegate {
                    at indexPath: IndexPath) -> [UIDragItem] {
         let title = User.data1[indexPath.row].name
         // 以下を共通に
-        let provider = NSItemProvider(object: title as NSItemProviderWriting)
-        return [UIDragItem(itemProvider: provider)]
+//        let provider = NSItemProvider(object: title as NSItemProviderWriting)
+//        return [UIDragItem(itemProvider: provider)]
+        return _tableView(tableView, makeDragItems: title)
     }
     
 }
@@ -81,8 +86,9 @@ extension Problem1FirstViewController: UITableViewDropDelegate {
                     dropSessionDidUpdate session: UIDropSession,
                     withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
         // 以下を共通に
-        return UITableViewDropProposal(operation: .move,
-                                       intent: .insertAtDestinationIndexPath)
+//        return UITableViewDropProposal(operation: .move,
+//                                       intent: .insertAtDestinationIndexPath)
+        _tableViewMakeDropProposal(tableView)
     }
     
     func tableView(_ tableView: UITableView,
