@@ -49,16 +49,42 @@ import UIKit
  ヒント2: protocol extensionを用いる
  */
 
+protocol ManagerProtocol {
+    associatedtype T
+    var tentative: T { get }
+    func saveUserTentative()
+}
+
+extension ManagerProtocol where Self == Manager {
+    var tentative: Self {
+        Manager()
+    }
+}
+
+extension Manager: ManagerProtocol { }
+
 struct Manager {
     
     // 普通にアクセスできるように
     func saveUser() {
         // Userを保存する処理
+        print(#function)
     }
     
     // 仮のメソッドなので、異なる扱いをしたい
     func saveUserTentative() {
         // Userを保存する処理(仮)
+        print(#function)
+    }
+    
+}
+
+final class ViewController : UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        Manager().tentative.saveUser()
+        Manager().tentative.saveUserTentative()
     }
     
 }
